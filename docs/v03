@@ -1,0 +1,32 @@
+  <html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
+        <script>
+            var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=rainbow&api-key=iGRJBxHl5BzZ4Cs6AjByeQ6lVpflBOxg";
+            var articleCount = 0
+            
+            function setup() {   
+              noCanvas();  
+              loadJSON(url, gotData);
+            }
+            //gotDATA for now just announces itself
+            function gotData(data) {
+              alert("FUNCTION GOT DDATA ACTIVATED")
+              document.getElementById("test_output").innerHTML=
+              data.response.docs[0].headline.main
+             }
+             function appendToPage(data) {
+             h = document.createElement('h3')
+             h.innerHTML = '(' + articleCount + ') ' 
+             + articles[i].headline.main
+             document.body.appendChild(h);
+           </script>
+    </head>
+    <body>
+        <h1>New York Times API: Articles from all time about rainbows</h1>
+        <!--a<P> (paragraph element we will use for output-->
+        <!--it's name is "test_output" and it is styled by the class "outut"-->
+        <p id="test_output" class="output"></p>
+      </body>
+</html>
+
